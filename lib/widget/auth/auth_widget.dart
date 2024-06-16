@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:themoviedb/Theme/Button_style.dart';
+import 'package:themoviedb/Theme/button_style.dart';
+import 'package:themoviedb/widget/auth/main_screen/auth_model.dart';
 
 
 class AuthWidget extends StatefulWidget {
-  const AuthWidget({Key? key}) : super(key: key);
+  const AuthWidget({super.key});
 
   @override
   State<AuthWidget> createState() => __AuthWidgetState();
@@ -14,7 +15,7 @@ class __AuthWidgetState extends State<AuthWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login to your account",
+        title: const Text("Login to your account",
         style: TextStyle(
           color: Colors.white,
         ),
@@ -22,7 +23,7 @@ class __AuthWidgetState extends State<AuthWidget> {
         centerTitle: true,
       ),
       body: ListView(
-        children: [
+        children: const [
           HeaderWidget(),
           ],
       ),
@@ -31,11 +32,11 @@ class __AuthWidgetState extends State<AuthWidget> {
 }
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({Key? key}) : super(key: key);
+  const HeaderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = const TextStyle(
+    const textStyle = TextStyle(
       fontSize: 16,
       color: Colors.black,
     );
@@ -44,148 +45,146 @@ class HeaderWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 25,),
-          FormWidget(),
-          SizedBox(height: 25,),
-          Text(
+          const SizedBox(height: 25,),
+          const FormWidget(),
+          const SizedBox(height: 25,),
+          const Text(
             'In order to use the editing and rating capabilities of TMDB, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple.',
             style: textStyle,),
-            SizedBox(height: 5,),
+            const SizedBox(height: 5,),
             TextButton(
               style: AppButtonStyle.linkButton,  
-              onPressed: () {}, child: Text('Register')),
-          SizedBox(height: 25,),
-          Text(
+              onPressed: () {}, child: const Text('Register')),
+          const SizedBox(height: 25,),
+          const Text(
             "If you signed up but didn't get your verification email.",
             style: textStyle,),
-            SizedBox(height: 5,),
+            const SizedBox(height: 5,),
             TextButton(
             style: AppButtonStyle.linkButton,  
-            onPressed: () {}, child: Text('Verification email')),
+            onPressed: () {}, child: const Text('Verification email')),
         ],
       ),
     );
   }
 }
 
-class FormWidget extends StatefulWidget {
-  const FormWidget({Key? key}) : super(key: key);
+class FormWidget extends StatelessWidget {
 
-  @override
-  State<FormWidget> createState() => _FormWidgetState();
-}
+  
+  const FormWidget({super.key});
 
-class _FormWidgetState extends State<FormWidget> {
-  final _loginTextController = TextEditingController(text: 'f');
-  final _passwordTextController = TextEditingController(text: 'f');
-  String? errorText = null;
-  void _auth(){
-    final login = _loginTextController.text;
-    final password = _passwordTextController.text;
-    if (login == 'f' && password == 'f') {
-      errorText = null;
-
-      //Navigator.of(context).pushReplacementNamed('/main_screen');
-      Navigator.of(context).pushNamed('/main_screen');
-    }
-
-
-    else {
-      errorText = 'Не верный логин или пароль';
-      print('show error');
-    }
-    setState(() {});
-  }
-
-  void _resetPassword(){
-    print('reset password');
-  }
-
-  @override
+    @override
   Widget build(BuildContext context) {
-    final textStyle = const TextStyle(
+    final model = AuthProvider.read(context)?.model;
+    const textStyle = TextStyle(
       fontSize: 16,
-      color: Color(0xFF212529),);
-    final textFieldDocaration = const InputDecoration(
+      color: Color(0xFF212529),
+      );
+    const textFieldDocaration = InputDecoration(
             border: OutlineInputBorder(),
             contentPadding: EdgeInsets.symmetric(horizontal: 10,
             vertical: 10),
-            isCollapsed: true);
-  final color = const Color(0xFF01B4E4);
-  final errorText = this.errorText;
+            isCollapsed: true,
+            fillColor: Colors.red,
+            focusColor: Colors.red,
+            hoverColor: Colors.red);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (errorText != null) ...[
-        Text(errorText,
-        style: TextStyle(
-          fontSize: 17,
-          color: Colors.red,
-        )
-        ),
-        SizedBox(height: 20,),
-      ],
-        Text(
+        const _ErrorMessageWidget(),
+        const Text(
         'Username',
         style: textStyle,),
-        SizedBox(height: 5,),
+        const SizedBox(height: 5,),
         TextField(
-          controller: _loginTextController,
+          controller: model?.loginTextController,
           decoration: textFieldDocaration,
           ),
-        SizedBox(height: 20,),
-        Text(
+        const SizedBox(height: 20,),
+        const Text(
         'Password',
         style: textStyle,),
-        SizedBox(height: 5,),
+        const SizedBox(height: 5,),
         TextField(
-          controller: _passwordTextController,
+          controller: model?.passwordTextController,
           decoration: textFieldDocaration,
           obscureText: true,
           ),
-          SizedBox(height: 25,),
+          const SizedBox(height: 25,),
           Row(
             children: [
+              const _AuthButtonWidget(),
+              const SizedBox(width: 15,),
               TextButton(
-              onPressed: _auth, 
+              onPressed: () {},
               style: ButtonStyle(
-                backgroundColor:MaterialStateProperty.all(const Color(0xFF01B4E4)),
-                foregroundColor: MaterialStateProperty.all(Colors.white),
+                foregroundColor: MaterialStateProperty.all(Colors.black),
                 textStyle: MaterialStateProperty.all(
-                  TextStyle(fontSize: 16, fontWeight: FontWeight.w700)
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.w400)
                 ),
-                padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 8,),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7)
-                      )
-                    )
-                    ),
-                    
-              child: Text('Login')),
-              SizedBox(width: 15,),
-              TextButton(
-              onPressed: _resetPassword,
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all(color),
-                textStyle: MaterialStateProperty.all(
-                  TextStyle(fontSize: 16, fontWeight: FontWeight.w400)
-                ),
-                overlayColor: MaterialStateProperty.all(Color.fromARGB(76, 109, 216, 245)),
+                overlayColor: MaterialStateProperty.all(const Color.fromARGB(76, 109, 216, 245)),
                 shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7)
                       )
                     ),
               ),
-              child: Text('Reset password')),
+              child: const Text('Reset password')),
             ],
             )
       ],
+    );
+  }
+}
+
+class _AuthButtonWidget extends StatelessWidget {
+  const _AuthButtonWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    final model = AuthProvider.watch(context)?.model;
+    final onPressed = model?.canStartAyth == true ? () => model?.auth(context) : null;
+    final child = model?.isAuthProgress == true ? const SizedBox(width: 15, height: 15, child: CircularProgressIndicator(strokeWidth: 2,)): const Text('Login');
+    return TextButton(
+    onPressed: onPressed,
+    style: ButtonStyle(
+      backgroundColor:MaterialStateProperty.all(const Color(0xFF01B4E4)),
+      foregroundColor: MaterialStateProperty.all(Colors.white),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)
+      ),
+      padding: MaterialStateProperty.all(
+        const EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 8,),
+          ),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(7)
+            )
+          )
+          ),      
+    child: child,
+    );
+  }
+}
+
+class _ErrorMessageWidget extends StatelessWidget {
+  const _ErrorMessageWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    final errorMessage = AuthProvider.watch(context)?.model.errorMessage;
+    if (errorMessage == null) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Text(errorMessage,
+          style: const TextStyle(
+            fontSize: 17,
+            color: Colors.red,
+          )
+          ),
     );
   }
 }

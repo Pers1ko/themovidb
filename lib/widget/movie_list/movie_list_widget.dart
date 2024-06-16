@@ -20,7 +20,7 @@ class Movie {
 
 class MovieList extends StatefulWidget {
 
-  MovieList({Key? key}) : super(key: key);
+  const MovieList({super.key});
 
   @override
   State<MovieList> createState() => _MovieListState();
@@ -97,7 +97,7 @@ void _searchMovies() {
     return Stack(
       children: [
         ListView.builder(
-          padding: EdgeInsets.only(top: 70),
+          padding: const EdgeInsets.only(top: 70),
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           itemCount: _filteredMovies.length,
           itemExtent: 163,
@@ -111,12 +111,12 @@ void _searchMovies() {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border:Border.all(color: Colors.black.withOpacity(0.2)),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
                         blurRadius: 8,
-                        offset: Offset(0, 2,),
+                        offset: const Offset(0, 2,),
                       )
                     ]
                     ),
@@ -124,29 +124,29 @@ void _searchMovies() {
                   child: Row(
                     children: [
                       Image(image: AssetImage(movie.imageName)),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Text(movie.title,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                            SizedBox(height: 5),
+                            style: const TextStyle(fontWeight: FontWeight.bold)),
+                            const SizedBox(height: 5),
                             Text(movie.time,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Colors.grey),),
-                            SizedBox(height: 20),
+                            style: const TextStyle(color: Colors.grey),),
+                            const SizedBox(height: 20),
                             Text(movie.description,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,)
                           ],
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       ],),
                 ),
                 Material(
@@ -168,16 +168,16 @@ void _searchMovies() {
             controller: _searchController,
             decoration: InputDecoration(
               labelText: 'Поиск',
-              labelStyle: TextStyle(color: AppColors.mainDarkBlue),
+              labelStyle: const TextStyle(color: AppColors.mainDarkBlue),
               
               filled: true,
               fillColor: Colors.white.withAlpha(235),
               border: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.mainDarkBlue),
+                borderSide: const BorderSide(color: AppColors.mainDarkBlue),
                 borderRadius: BorderRadius.circular(30),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.mainDarkBlue),
+                borderSide: const BorderSide(color: AppColors.mainDarkBlue),
                 borderRadius: BorderRadius.circular(30),
               )
             ),

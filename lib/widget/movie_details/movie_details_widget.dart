@@ -6,9 +6,9 @@ import 'package:themoviedb/widget/movie_details/movie_details_main_screen_cast_w
 
 class MovieDetailsWidget extends StatefulWidget {
 final int movieId;
-  MovieDetailsWidget({Key? key, 
+  const MovieDetailsWidget({super.key, 
   required this.movieId
-  }) : super(key: key);
+  });
 
   @override
   State<MovieDetailsWidget> createState() => _MovieDetailsWidgetState();
@@ -19,16 +19,17 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
+          iconTheme: const IconThemeData(color: Colors.white),
+          title: const Text(
           'Без жалости',
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,),
           centerTitle: true,
         ),
         body: ColoredBox(
-          color: Color.fromRGBO(24, 23, 27, 1.0),
+          color: const Color.fromRGBO(24, 23, 27, 1.0),
           child: ListView(
-              children: [
+              children: const [
                 MovieDetailsMainInfoWidget(),
                 SizedBox(height: 30,),
                 MovieDetailsMainScreenCastWidget(),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:themoviedb/Theme/app_colors.dart';
 
 class Example extends StatefulWidget {
-  const Example({Key? key}) : super(key: key);
+  const Example({super.key});
 
   @override
   State<Example> createState() => _ExampleState();
@@ -17,11 +17,11 @@ class _ExampleState extends State<Example> {
         width: 100,
         height: 100,
         decoration: BoxDecoration(border: Border.all(color: Colors.red)),
-        child: RadialPercentWidget(
+        child: const RadialPercentWidget(
           percent: 0.72,
           fillColor: AppColors.mainDarkBlue,
           lineColor: Color.fromARGB(255, 195, 255, 0),
-          freeColor: const Color.fromARGB(150, 158, 158, 158),
+          freeColor: Color.fromARGB(150, 158, 158, 158),
           lineWidth: 5,
           child: Text(
             '72%',
@@ -41,14 +41,14 @@ class RadialPercentWidget extends StatelessWidget {
   final double lineWidth;
 
   const RadialPercentWidget({
-    Key? key,
+    super.key,
     required this.child,
     required this.percent,
     required this.lineColor,
     required this.freeColor,
     required this.lineWidth,
     required this.fillColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +134,7 @@ void drawBackground(Canvas canvas, Size size) {
 }
 
 Rect calculateArcsRect(Size size) {
-  final linesMargin = 3;
+  const linesMargin = 3;
   final offset = lineWidth / 2 + linesMargin;
   final arcRect = Offset(offset, offset) &
   Size(size.width - offset * 2, size.height - offset * 2);

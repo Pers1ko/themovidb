@@ -4,44 +4,44 @@ import 'package:themoviedb/elements/radial_percent_widget.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class MovieDetailsMainInfoWidget extends StatelessWidget {
-  const MovieDetailsMainInfoWidget({Key? key}) : super(key: key);
+  const MovieDetailsMainInfoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _TopPostersWidget(),
-        Padding(
-          padding: const EdgeInsets.all(15),
+        const _TopPostersWidget(),
+        const Padding(
+          padding: EdgeInsets.all(15),
           child: _MovieNameWidget(),
         ),
-        _ScoreWidget(),
-        _SummeryWidget(),
+        const _ScoreWidget(),
+        const _SummeryWidget(),
         Padding(
           padding: const EdgeInsets.all(10.0),
-          child: _OverviewWidget(),
+          child: _overviewWidget(),
         ),
         Padding(
           padding: const EdgeInsets.all(10.0),
-          child: _DescriptionWidget(),
+          child: _descriptionWidget(),
         ),
-        SizedBox(height: 30),
-        _PeopleWidget(),
+        const SizedBox(height: 30),
+        const _PeopleWidget(),
         
     ]);
   }
 
-  Text _DescriptionWidget() {
-    return Text('An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.',
+  Text _descriptionWidget() {
+    return const Text('An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.',
         style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.w400,));
   }
 
-  Text _OverviewWidget() {
-    return Text('Обзор',
+  Text _overviewWidget() {
+    return const Text('Обзор',
         style: TextStyle(
               color: Colors.white,
               fontSize: 20,
@@ -51,11 +51,11 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
 }
 
 class _TopPostersWidget extends StatelessWidget {
-  const _TopPostersWidget({Key? key}) : super(key: key);
+  const _TopPostersWidget();
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
         Image(image: AssetImage(AppImages.big2),),
         Positioned(
@@ -73,14 +73,14 @@ class _TopPostersWidget extends StatelessWidget {
 }
 
 class _MovieNameWidget extends StatelessWidget {
-  const _MovieNameWidget({Key? key}) : super(key: key);
+  const _MovieNameWidget();
 
   @override
   Widget build(BuildContext context) {
     return RichText(
       maxLines: 3,
       textAlign: TextAlign.center,
-      text: TextSpan(
+      text: const TextSpan(
       children: [
         TextSpan(text: 'Без жалости ',
         style: TextStyle(fontWeight: FontWeight.w600,
@@ -99,7 +99,7 @@ class _MovieNameWidget extends StatelessWidget {
 }
 
 class _ScoreWidget extends StatelessWidget {
-  const _ScoreWidget({Key? key}) : super(key: key);
+  const _ScoreWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class _ScoreWidget extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {}, 
-          child: Row(
+          child: const Row(
             children: [
               SizedBox(
                 width: 60,
@@ -116,7 +116,7 @@ class _ScoreWidget extends StatelessWidget {
                 child: RadialPercentWidget( 
                   percent: 0.72,
                   fillColor: AppColors.mainDarkBlue,
-                  lineColor: const Color.fromARGB(255, 0, 255, 8), 
+                  lineColor: Color.fromARGB(255, 0, 255, 8), 
                   freeColor: Color.fromARGB(146, 2, 255, 10),
                   lineWidth: 3,
                   child: Text('72',
@@ -133,7 +133,7 @@ class _ScoreWidget extends StatelessWidget {
         color: Colors.grey,
       ),
       TextButton(onPressed: () {}, child:
-          Row(
+          const Row(
             children: [
               Icon(Icons.play_arrow,
               color: Colors.white,),
@@ -149,14 +149,14 @@ class _ScoreWidget extends StatelessWidget {
 
 
 class _SummeryWidget extends StatelessWidget {
-  const _SummeryWidget({Key? key}) : super(key: key);
+  const _SummeryWidget();
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
+    return const ColoredBox(
       color: Color.fromRGBO(22, 21, 25, 1.0),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 70),
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 70),
         child: Text('R 04/29/2021 (US) Adventure, Action, Thriller, War 1h 49m',
         maxLines: 3,
         textAlign: TextAlign.center,
@@ -171,19 +171,19 @@ class _SummeryWidget extends StatelessWidget {
 }
 
 class _PeopleWidget extends StatelessWidget {
-  const _PeopleWidget({Key? key}) : super(key: key);
+  const _PeopleWidget();
 
   @override
   Widget build(BuildContext context) {
-    final nameStyle = TextStyle(
+    const nameStyle =  TextStyle(
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w400);
-    final jobTilteStyle = TextStyle(
+    const jobTilteStyle = TextStyle(
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w400);
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisSize: MainAxisSize.max,
