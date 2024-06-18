@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themoviedb/Theme/app_colors.dart';
+import 'package:themoviedb/navigation/main_navigation.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class Movie {
@@ -86,8 +87,7 @@ void _searchMovies() {
 
   void _onMovieTap(int index) {
     final id = _movies[index].id;
-    Navigator.of(context).pushNamed(
-      '/main_screen/movie_details',
+    Navigator.of(context).pushNamed(MainNavigationRoutesNames.movieDetails,
       arguments: id,
       );
   }

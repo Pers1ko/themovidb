@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themoviedb/news_widget/news_widget.dart';
+import 'package:themoviedb/tv_show/tv_show.dart';
 import 'package:themoviedb/widget/movie_list/movie_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
@@ -38,7 +39,7 @@ void onSelectetTab(int index) {
         children: const [
           NewsWidget(),
           MovieList(),
-          Text('Сериалы'),
+          TWShowListWidget(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
