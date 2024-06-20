@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:themoviedb/widget/movie_details/movie_details_main_info_widget.dart';
-import 'package:themoviedb/widget/movie_details/movie_details_main_screen_cast_widget.dart';
+import 'package:themoviedb/ui/widget/movie_details/movie_details_main_info_widget.dart';
+import 'package:themoviedb/ui/widget/movie_details/movie_details_main_screen_cast_widget.dart';
 
 
 

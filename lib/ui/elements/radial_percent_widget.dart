@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:themoviedb/Theme/app_colors.dart';
+import 'package:themoviedb/ui/Theme/app_colors.dart';
 
 class Example extends StatefulWidget {
   const Example({super.key});

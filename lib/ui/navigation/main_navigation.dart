@@ -1,14 +1,13 @@
-
 import 'package:flutter/material.dart';
-import 'package:themoviedb/widget/auth/auth_widget.dart';
-import 'package:themoviedb/widget/auth/main_screen/auth_model.dart';
-import 'package:themoviedb/widget/auth/main_screen/main_screen_widget.dart';
-import 'package:themoviedb/widget/movie_details/movie_details_widget.dart';
+import 'package:themoviedb/ui/widget/auth/auth_widget.dart';
+import 'package:themoviedb/ui/widget/auth/auth_model.dart';
+import 'package:themoviedb/ui/widget/main_screen/main_screen_widget.dart';
+import 'package:themoviedb/ui/widget/movie_details/movie_details_widget.dart';
 
 abstract class MainNavigationRoutesNames {
-  static const auth = '/auth';
-  static const mainScreen = '/main_screen';
-  static const movieDetails = '/main_screen/movie_details';
+  static const auth = 'auth';
+  static const mainScreen = '/';
+  static const movieDetails = '/movie_details';
 }
 
 
@@ -16,10 +15,10 @@ abstract class MainNavigationRoutesNames {
 class MainNavigation {
   String initialRoute(bool isAuth) => isAuth ? MainNavigationRoutesNames.mainScreen : MainNavigationRoutesNames.auth;
     final routes = <String, Widget Function (BuildContext)> {
-      '/auth': (context) =>  AuthProvider(
+      'auth': (context) =>  AuthProvider(
                 model: AuthModel(), 
                 child: const AuthWidget()),
-      '/main_screen':(context) => const MainScreenWidget(),
+      MainNavigationRoutesNames.mainScreen:(context) => const MainScreenWidget(),
        
     };
 

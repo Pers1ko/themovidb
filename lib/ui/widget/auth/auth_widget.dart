@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:themoviedb/Theme/button_style.dart';
-import 'package:themoviedb/widget/auth/main_screen/auth_model.dart';
+import 'package:themoviedb/ui/Theme/button_style.dart';
+import 'package:themoviedb/ui/widget/auth/auth_model.dart';
 
 
 class AuthWidget extends StatefulWidget {

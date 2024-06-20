@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:themoviedb/news_widget/news_widget.dart';
-import 'package:themoviedb/tv_show/tv_show.dart';
-import 'package:themoviedb/widget/movie_list/movie_list_widget.dart';
+import 'package:themoviedb/domain/api%20client/data_provider/session_data_provider.dart';
+import 'package:themoviedb/ui/widget/movie_list/movie_list_widget.dart';
+import 'package:themoviedb/ui/widget/news_widget/news_widget.dart';
+import 'package:themoviedb/ui/widget/tv_show/tv_show.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -27,7 +28,10 @@ void onSelectetTab(int index) {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        actions: <Widget>[IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+        actions: <Widget>[
+          IconButton(
+          onPressed: () => SessionDataProvider().setSessionId(null), 
+          icon: const Icon(Icons.search))],
         title: const Text(
         'TMDB',
         style: TextStyle(color: Colors.white),

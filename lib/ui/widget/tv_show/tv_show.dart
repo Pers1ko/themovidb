@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:themoviedb/Theme/app_colors.dart';
-import 'package:themoviedb/navigation/main_navigation.dart';
+import 'package:themoviedb/ui/Theme/app_colors.dart';
+import 'package:themoviedb/ui/navigation/main_navigation.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class TVShow {

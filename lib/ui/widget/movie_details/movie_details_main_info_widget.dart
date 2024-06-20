@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:themoviedb/Theme/app_colors.dart';
-import 'package:themoviedb/elements/radial_percent_widget.dart';
+import 'package:themoviedb/ui/Theme/app_colors.dart';
+import 'package:themoviedb/ui/elements/radial_percent_widget.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class MovieDetailsMainInfoWidget extends StatelessWidget {
