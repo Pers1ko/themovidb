@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:themoviedb/domain/api%20client/data_provider/session_data_provider.dart';
+import 'package:themoviedb/ui/widget/auth/auth_model.dart';
+import 'package:themoviedb/ui/widget/main_screen/main_screen_model.dart';
 import 'package:themoviedb/ui/widget/movie_list/movie_list_widget.dart';
 import 'package:themoviedb/ui/widget/news_widget/news_widget.dart';
 import 'package:themoviedb/ui/widget/tv_show/tv_show.dart';

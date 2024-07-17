@@ -25,7 +25,8 @@ class _ExampleState extends State<Example> {
           lineWidth: 5,
           child: Text(
             '72%',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white,
+            ),
           )
         ),
       ),);
